@@ -5,7 +5,7 @@ window.PEGUEAKI = {
   leadEndpoint: '',
 
   /* Convite do grupo de avisos no WhatsApp (https://chat.whatsapp.com/...). */
-  whatsappGroup: '',
+  whatsappGroup: 'https://chat.whatsapp.com/GOt9zsSr8neByyACLJwYiM',
 
   /* Aula (horário de Brasília). */
   eventStart: '2026-11-25T20:00:00-03:00',
