@@ -125,7 +125,7 @@
         }
         try { sessionStorage.setItem('pa_inscrito', '1'); } catch (_) {}
         const q = new URLSearchParams(utm).toString();
-        location.href = 'obrigado.html' + (q ? '?' + q : '');
+        location.href = 'obrigado' + (q ? '?' + q : '');
       } catch (_) {
         btn.classList.remove('is-loading'); btn.removeAttribute('aria-busy');
         status.textContent = 'Não conseguimos enviar agora. Confira sua conexão e toque no botão de novo.';
