@@ -12,8 +12,8 @@
   <meta property="og:image" content="assets/img/og.jpg">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preload" href="assets/fonts/lato-900.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <link rel="preload" href="assets/fonts/lato-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -35,7 +35,7 @@
       <div class="wrap hero__in">
         <div class="hero__copy">
           <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Aula ao vivo e gratuita · Quarta, 25/11, às 20h</p>
-          <h1 class="hero__title" id="hero-title">Condomínio ou rua: onde abrir seu minimercado agora</h1>
+          <h1 class="hero__title" id="hero-title"><b>Condomínio ou <span class="hl">rua</span>:</b> onde abrir seu minimercado agora</h1>
           <p class="hero__sub">O que aprendemos montando mercados em condomínio, e por que o próximo passo é a rua, sem depender de síndico.</p>
 
           <div class="countdown" data-countdown aria-live="off" hidden>
@@ -93,12 +93,12 @@
               <input id="f-nome" name="nome" type="text" autocomplete="name" required minlength="2" enterkeyhint="next">
               <p class="field__err" id="e-nome">Escreva seu nome.</p>
             </div>
-            <div class="field">
+            <div class="field field--half">
               <label for="f-whats">WhatsApp com DDD</label>
               <input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 91234-5678" required data-mask="phone" enterkeyhint="next">
               <p class="field__err" id="e-whats">Informe o WhatsApp com DDD, só números.</p>
             </div>
-            <div class="field">
+            <div class="field field--half">
               <label for="f-email">E-mail</label>
               <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required enterkeyhint="next">
               <p class="field__err" id="e-email">Confira o e-mail: falta o @ ou o domínio.</p>
@@ -169,7 +169,7 @@
     <!-- ============ 3 · O QUE VOCÊ VAI VER ============ -->
     <section class="agenda section" aria-labelledby="agenda-title">
       <div class="wrap">
-        <h2 class="agenda__title" id="agenda-title" data-reveal>Em uma noite, você vai sair sabendo</h2>
+        <h2 class="agenda__title" id="agenda-title" data-reveal>Em uma noite, <b>você vai sair sabendo</b></h2>
         <ol class="learn" data-reveal-list>
           <li class="learn__item"><span class="learn__n" aria-hidden="true">1</span><p>Os bastidores de quem já ajudou a montar <strong>mais de 100 mercados em condomínio</strong>: o que dá certo e o que trava.</p></li>
           <li class="learn__item"><span class="learn__n" aria-hidden="true">2</span><p><strong>Condomínio ou rua:</strong> a diferença real de ponto, público, faturamento e risco.</p></li>
@@ -222,7 +222,7 @@
     <section class="final" aria-labelledby="final-title">
       <svg class="final__pin" aria-hidden="true" viewBox="0 0 200 240"><path d="M100 10c50 0 86 38 86 84 0 56-50 92-86 136-36-44-86-80-86-136 0-46 36-84 86-84z"/></svg>
       <div class="wrap final__in">
-        <h2 class="final__title" id="final-title" data-reveal>Quarta, 25 de novembro, às 20h. Ao vivo e gratuito.</h2>
+        <h2 class="final__title" id="final-title" data-reveal>Quarta, 25 de novembro, às 20h. <b>Ao vivo e gratuito.</b></h2>
         <p class="final__text" data-reveal>Se você quer abrir um minimercado, a decisão entre condomínio e rua muda tudo: o ponto, o público e o tamanho que o negócio pode ter. Venha entender antes de investir.</p>
         <a class="btn btn--sun btn--lg" href="#inscricao" data-to-form data-reveal>Quero participar da aula gratuita</a>
 
@@ -249,6 +249,6 @@
   </div>
 
   <script src="assets/js/config.js?v=1" defer></script>
-  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
