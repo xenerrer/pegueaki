@@ -29,28 +29,39 @@ const COLUNAS = [
 
 function doPost(e) {
   const p = (e && e.parameter) || {};
+  const linha = [
+    Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss'),
+  ].concat([
+    p.nome, p.email, whatsapp(p.whatsapp), p.cidade, p.investimento,
+    p.utm_source, p.utm_medium, p.utm_campaign, p.utm_term, p.utm_content,
+    p.gclid, p.fbclid, p.pagina, ORIGEM,
+  ].map(texto));
+
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);
+  let erro = null;
   try {
-    const aba = SpreadsheetApp.openById(PLANILHA_ID).getSheets()[0];
-    if (aba.getLastRow() === 0) aba.appendRow(COLUNAS);
-    if (aba.getFrozenRows() === 0) aba.setFrozenRows(1);
-
-    const linha = [
-      Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss'),
-      p.nome, p.email, whatsapp(p.whatsapp), p.cidade, p.investimento,
-      p.utm_source, p.utm_medium, p.utm_campaign, p.utm_term, p.utm_content,
-      p.gclid, p.fbclid, p.pagina, ORIGEM,
-    ].map(texto);
-
-    const n = aba.getLastRow() + 1;
-    const destino = aba.getRange(n, 1, 1, linha.length);
-    destino.setNumberFormat('@'); // guarda tudo como texto (o + do WhatsApp não vira número)
-    destino.setValues([linha]);
+    // até 3 tentativas: o Planilhas às vezes falha por um instante
+    for (let tentativa = 1; tentativa <= 3; tentativa++) {
+      try {
+        const aba = SpreadsheetApp.openById(PLANILHA_ID).getSheets()[0];
+        if (aba.getLastRow() === 0) aba.appendRow(COLUNAS);
+        // sem mexer em formato de coluna: a planilha pode estar como Tabela
+        aba.getRange(aba.getLastRow() + 1, 1, 1, linha.length).setValues([linha]);
+        SpreadsheetApp.flush();
+        erro = null;
+        break;
+      } catch (err) {
+        erro = err;
+        console.error('Tentativa ' + tentativa + ': ' + err);
+        Utilities.sleep(700 * tentativa);
+      }
+    }
   } finally {
     lock.releaseLock();
   }
-  return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+  if (erro) console.error('Lead não gravado: ' + JSON.stringify(linha));
+  return ContentService.createTextOutput(JSON.stringify({ ok: !erro, erro: erro ? String(erro) : undefined }))
     .setMimeType(ContentService.MimeType.JSON);
 }
 
@@ -66,8 +77,9 @@ function whatsapp(v) {
   return '+' + d;
 }
 
-/* texto limpo, sem virar fórmula na planilha */
+/* O apóstrofo faz a planilha guardar como texto: o WhatsApp e os IDs de anúncio
+   não viram número (nem perdem dígitos) e nada vira fórmula. Ele não aparece na célula. */
 function texto(v) {
   const s = v == null ? '' : String(v).trim().slice(0, 500);
-  return /^[=+\-@]/.test(s) && !/^\+\d+$/.test(s) ? "'" + s : s;
+  return s ? "'" + s : '';
 }
