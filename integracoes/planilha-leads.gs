@@ -5,7 +5,7 @@
  * "Leads - LP - Aula 25 Nov (Pegue Aki)", com os campos e as UTMs.
  *
  * Como instalar (uma vez):
- * 1. Na planilha: Extensões > Apps Script. Apague o que houver e cole este arquivo.
+ * 1. Em script.google.com, Novo projeto (no Drive pessoal, não no compartilhado). Cole este arquivo.
  * 2. Implantar > Nova implantação > tipo "App da Web".
  *    Executar como: Eu. Quem pode acessar: Qualquer pessoa.
  * 3. Autorize o acesso à planilha e copie a URL que termina em /exec.
