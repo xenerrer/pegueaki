@@ -11,6 +11,10 @@
  * 3. Autorize o acesso à planilha e copie a URL que termina em /exec.
  * 4. Essa URL vai em `leadEndpoint`, no arquivo site/assets/js/config.js.
  *
+ * NÃO coloque o projeto no Drive compartilhado da Allu: lá o Google não deixa
+ * publicar pela conta do Lucas e o app da web para (aconteceu em 12/11/2026).
+ * Projeto ativo: "Backup de leads - LP Pegue Aki (ativo)", no Drive do Lucas.
+ *
  * Ao mudar este código depois, use Implantar > Gerenciar implantações > editar
  * (versão nova) para manter a mesma URL.
  */
