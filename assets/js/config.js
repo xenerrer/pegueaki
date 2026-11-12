@@ -2,7 +2,7 @@
 window.PEGUEAKI = {
   /* URL que recebe as inscrições por POST (Google Apps Script, Make, Zapier, webhook do CRM).
      Vazio = a inscrição NÃO é salva em lugar nenhum (só para testes). */
-  leadEndpoint: '',
+  leadEndpoint: 'https://script.google.com/macros/s/AKfycbwuMifcNhXSWudN_lR9Gdw0NRwMi--KR55-xolc23DRrQENHocticT1M7fxlSdWFEdA/exec',
 
   /* Convite do grupo de avisos no WhatsApp (https://chat.whatsapp.com/...). */
   whatsappGroup: 'https://chat.whatsapp.com/GOt9zsSr8neByyACLJwYiM',
