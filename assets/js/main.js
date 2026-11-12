@@ -140,6 +140,6 @@
   const cal = $('[data-calendar]');
   if (cal) {
     const apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent) && !/Chrome|CriOS|Android/.test(navigator.userAgent);
-    if (apple) { cal.href = 'assets/aula-pegue-aki.ics'; cal.removeAttribute('target'); cal.setAttribute('download', 'aula-pegue-aki.ics'); }
+    if (apple) { cal.href = '../assets/aula-pegue-aki.ics'; cal.removeAttribute('target'); cal.setAttribute('download', 'aula-pegue-aki.ics'); }
   }
 })();

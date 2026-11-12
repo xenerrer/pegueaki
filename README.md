@@ -1,6 +1,6 @@
 # PEGUE AKI · LP da aula "Condomínio ou rua"
 
-Página de captura (`index.html`) e página de obrigado (`obrigado.html`), site estático publicado em https://lp.pegueaki.com pelo GitHub Pages.
+Página de captura (`aula-nov26/index.html`) e página de obrigado (`aula-nov26/obrigado.html`), site estático publicado em https://lp.pegueaki.com/aula-nov26 (a raiz e /obrigado redirecionam para lá) pelo GitHub Pages.
 
 **Antes de divulgar, preencha `assets/js/config.js`:**
 - `leadEndpoint`: URL que recebe as inscrições por POST (Google Apps Script, Make, Zapier ou webhook do CRM). Vazio = a inscrição não é salva.

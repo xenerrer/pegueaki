@@ -30,7 +30,7 @@ jobs:
       - name: Montar a pasta publicada (CSS e JS minificados)
         run: |
           mkdir -p _site
-          cp -r index.html obrigado.html favicon.png CNAME assets _site/
+          cp -r index.html obrigado.html aula-nov26 favicon.png CNAME assets _site/
           npx --yes esbuild@0.24.0 assets/css/style.css --minify --outfile=_site/assets/css/style.css
           npx --yes esbuild@0.24.0 assets/js/main.js --minify --outdir=_site/assets/js
 
