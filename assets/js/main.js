@@ -122,6 +122,12 @@
       const fbc = cookie('_fbc') || (utm.fbclid ? 'fb.1.' + Date.now() + '.' + utm.fbclid : '');
       body.set('fbp', cookie('_fbp'));
       body.set('fbc', fbc);
+      /* API de Conversões: o mesmo event_id vai para o servidor e para o Pixel
+         da página de obrigado, e o Meta conta a conversão uma vez só */
+      const eventId = 'pa-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+      body.set('event_id', eventId);
+      body.set('ua', navigator.userAgent);
+      try { sessionStorage.setItem('pa_event_id', eventId); } catch (_) {}
       try {
         if (cfg.leadEndpoint) {
           await Promise.race([
