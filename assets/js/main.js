@@ -116,6 +116,12 @@
       body.set('enviado_em', new Date().toISOString());
       body.set('pagina', location.origin + location.pathname);
       Object.entries(utm).forEach(([k, v]) => body.set(k, v));
+      /* cookies do Meta Pixel: _fbp (navegador) e _fbc (clique no anúncio).
+         Sem _fbc, mas com fbclid na URL, monta no formato do Meta: fb.1.<ms>.<fbclid> */
+      const cookie = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1] || '';
+      const fbc = cookie('_fbc') || (utm.fbclid ? 'fb.1.' + Date.now() + '.' + utm.fbclid : '');
+      body.set('fbp', cookie('_fbp'));
+      body.set('fbc', fbc);
       try {
         if (cfg.leadEndpoint) {
           await Promise.race([

@@ -24,7 +24,7 @@ const ORIGEM = 'LP Aula 25/11 Pegue Aki';
 const COLUNAS = [
   'Data/Hora', 'Nome', 'E-mail', 'WhatsApp', 'Cidade', 'Investimento',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-  'gclid', 'fbclid', 'Pagina', 'Origem',
+  'gclid', 'fbclid', 'Pagina', 'Origem', 'fbp', 'fbc',
 ];
 
 function doPost(e) {
@@ -34,7 +34,7 @@ function doPost(e) {
   ].concat([
     p.nome, p.email, whatsapp(p.whatsapp), p.cidade, p.investimento,
     p.utm_source, p.utm_medium, p.utm_campaign, p.utm_term, p.utm_content,
-    p.gclid, p.fbclid, p.pagina, ORIGEM,
+    p.gclid, p.fbclid, p.pagina, ORIGEM, p.fbp, p.fbc,
   ].map(texto));
 
   const lock = LockService.getScriptLock();
