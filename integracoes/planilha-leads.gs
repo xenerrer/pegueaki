@@ -178,3 +178,9 @@ function texto(v) {
   const s = v == null ? '' : String(v).trim().slice(0, 500);
   return s ? "'" + s : '';
 }
+
+/* Rode no editor para autorizar e testar o acesso ao Meta (não envia evento). */
+function testarConexaoMeta() {
+  const r = UrlFetchApp.fetch('https://graph.facebook.com/', { muteHttpExceptions: true });
+  console.log('Meta respondeu: ' + r.getResponseCode());
+}
